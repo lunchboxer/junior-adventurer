@@ -1,0 +1,57 @@
+{
+  "name": "junior-adventurers",
+  "version": "0.1.0",
+  "description": "2nd grade class website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunchboxer/junior-adventurers"
+  },
+  "scripts": {
+    "build": "rollup -c && npm run minify-css",
+    "dev": "rollup -c -w",
+    "start": "sirv frontend-dist",
+    "lint": "eslint frontend-src fc-api --fix",
+    "test": "NODE_ENV=testing PORT=6666 tape test/*.test.js ./test/**/*.test.js | tap-spec",
+    "minify-css": "postcss frontend-dist/global.css > frontend-dist/global.min.css"
+  },
+  "devDependencies": {
+    "@graphql-eslint/eslint-plugin": "^0.8.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-graphql": "^1.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "cssnano": "^4.1.10",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-svelte3": "^3.0.0",
+    "eslint-plugin-unicorn": "^27.0.0",
+    "graphql": "^15.5.0",
+    "nanoid": "^3.1.20",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "prettier-plugin-svelte": "^2.1.1",
+    "rollup": "^2.38.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "svelte": "^3.32.0",
+    "svelte-spa-router": "^3.1.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.1.1",
+    "tiny-json-http": "^7.3.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^1.0.11"
+  }
+}
