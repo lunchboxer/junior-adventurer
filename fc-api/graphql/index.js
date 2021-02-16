@@ -12,7 +12,6 @@ const schema = makeExecutableSchema({
 
 exports.handler = (request, response, context) => {
   let result
-  // request body is a stream. collect it and then do stuff
   let body = ''
   request.on('data', chunk => {
     body += chunk
