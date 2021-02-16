@@ -1,7 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import json from '@rollup/plugin-json'
-// import { terser } from 'rollup-plugin-terser'
+// import { getBabelOutputPlugin } from '@rollup/plugin-babel'
 
 export default {
   input: './index.js',
@@ -17,7 +16,8 @@ export default {
       browser: false,
     }),
     commonjs(),
-    json(),
-    // terser(), This appears to break stuff currently
+    // getBabelOutputPlugin({
+    //   presets: [['@babel/preset-env', { targets: 'node 10' }]],
+    // }),
   ],
 }
