@@ -1,7 +1,5 @@
-# Junior Adventurer
+# Junior Adventurers
 
-![alt text](https://github.com/lunchboxer/junior-adventurer/blob/main/frontend-dist/mountains-banner.jpg?raw=true)
+a graphql api for a 2nd grade class
 
-A website for a 2nd grade class
-
-It currently consists of a svelte-based frontend static website, a graqphl api for deployment to Alibaba Cloud function compute and some related development, build, and deployment resources.
+This api was designed for deployment to Alibaba Cloud function compute. It works and could be a template for similar projects. The documentation for Alibaba Cloud products in English is verbose, but terrible, so may this help you on your quest.
