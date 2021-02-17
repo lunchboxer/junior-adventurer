@@ -15,11 +15,8 @@
     "minify-css": "postcss frontend-dist/global.css > frontend-dist/global.min.css"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.16",
     "@graphql-eslint/eslint-plugin": "^0.8.0",
-    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-graphql": "^1.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^2.3.4",
     "cssnano": "^4.1.10",

@@ -1,9 +1,19 @@
 const { graphql } = require('graphql')
 const { makeExecutableSchema } = require('@graphql-tools/schema')
-const { typeDefs } = require('./type-defs')
 const { resolvers } = require('./resolvers')
 const { database } = require('./database')
 const { getUserId } = require('./utils')
+const fs = require('fs')
+
+const loadGraphqlFile = () => {
+  try {
+    return fs.readFileSync('./schema.graphql', 'utf8')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const typeDefs = loadGraphqlFile()
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -18,6 +28,7 @@ exports.handler = (request, response, context) => {
   })
   request.on('end', async () => {
     try {
+      response.setHeader('content-type', 'application/json')
       const { query, variables, operationName } = JSON.parse(body)
       const gqlcontext = { userID: getUserId(request.headers), database }
 
@@ -29,12 +40,13 @@ exports.handler = (request, response, context) => {
         variables,
         operationName,
       )
-      response.setStatusCode(200)
+      const code = result.errors ? 400 : 200
+      response.setStatusCode(code)
     } catch (error) {
-      response.setStatusCode(400)
+      response.setStatusCode(500)
+      console.error(error)
       result = error
     } finally {
-      response.setHeader('content-type', 'application/json')
       response.send(JSON.stringify(result))
     }
   })

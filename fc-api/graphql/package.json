@@ -2,8 +2,7 @@
   "name": "ja-graphql-api",
   "version": "1.0.0",
   "description": "graphql api for junior adventurers",
-  "main": "./dist/index.js",
-  "source": "./index.js",
+  "main": "./index.js",
   "author": "James",
   "license": "MIT",
   "dependencies": {

@@ -1,0 +1,36 @@
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type Student {
+  id: ID
+  name: String
+  birthdate: String
+  languages: String
+}
+
+type User {
+  id: ID
+  name: String
+  email: String
+  isVerified: Boolean
+}
+
+type Query {
+  student(id: ID): Student
+  students: [Student]
+  me: User
+  userCount: Int
+  user(id: ID!): User
+  users: [User]
+}
+
+type Mutation {
+  createStudent(birthdate: String, languages: String, name: String): Student
+  createUser(email: String!, name: String, password: String!): AuthPayload
+  deleteUser(id: ID!): User
+  changePassword(newPassword: String!, oldPassword: String!): User
+  login(email: String!, password: String!): AuthPayload
+  updateUser(email: String, id: ID!, name: String): User
+}
